@@ -1,0 +1,11 @@
+ID 	Наименование	Марка	Цена за 1 шт., руб	Цвет	Оценка покупателей
+1	Philips GC4563/30	Philips	5499	фиолетовый	4,8
+2	Morphy Richards Saturn Intellitemp 305003	Morphy Richards	6799	синий	4,8
+3	Philips GC4905/40	Philips	5599	бежевый	4
+4	Braun TS 735 TP	Braun	4599	серый	3,8
+5	Tefal FV3968	Tefal	3999	синий	4,4
+6	Polaris PIR 2457K	Polaris	1699	фиолетовый	5,3
+7	Bosch TDA30EASY	Bosch	3499	серый	4,6
+8	Tefal FV9834E0	Tefal	8499	черный	4,8
+9	Philips DST6008/20	Philips	3499	синий	4,5
+10	Braun TS 525 A	Braun	3699	голубой	5
