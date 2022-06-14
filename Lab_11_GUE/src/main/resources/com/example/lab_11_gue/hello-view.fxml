@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.49498327759197325" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="893.0" stylesheets="@../../../style/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab_11_gue.HelloController">
+<items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+        <children>
+            <VBox alignment="CENTER" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="817.0" prefWidth="437.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+
+                <Label fx:id="welcomeText" text="Введите 10-ое число" />
+               <Label fx:id="error" text="" />
+                <TextField fx:id="numberReader" maxHeight="-Infinity" maxWidth="-Infinity" />
+                <Button fx:id="startButton" onAction="#onHelloButtonClick" text="Запуск" />
+                <Label text="Двоичная система" />
+                <Label fx:id="binary" text="" />
+                <Label text="Троичная система" />
+                <Label fx:id="third" text="" />
+                <Label text="Четверичная система" />
+                <Label fx:id="fourth" text="" />
+                <Label text="Пятеричная система" />
+                <Label fx:id="fifth" text="" />
+                <Label text="Шестеричная система" />
+                <Label fx:id="sixth" text="" />
+                <Label text="Семеричная система" />
+                <Label fx:id="seventh" text="" />
+                <Label text="Восьмеричная система" />
+                <Label fx:id="eighth" text="" />
+                <Label text="Девятеричная система" />
+                <Label fx:id="ninth" text="" />
+
+            </VBox>
+        </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+        <children>
+            <VBox alignment="CENTER" layoutX="137.0" prefHeight="817.0" prefWidth="446.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="Введите число" />
+                  <TextField fx:id="secondNumberReader" maxHeight="-Infinity" maxWidth="-Infinity" />
+                  <Label text="Введите систему счисления от 2 до 9" />
+                  <TextField fx:id="systemReader" maxHeight="-Infinity" maxWidth="-Infinity" />
+                  <Button fx:id="startSecondButton" mnemonicParsing="false" onAction="#onStartButtonClick" text="Запуск" />
+                  <Label text="Результат" />
+                  <Label fx:id="result" />
+               </children></VBox>
+        </children></AnchorPane>
+</items>
+</SplitPane>
