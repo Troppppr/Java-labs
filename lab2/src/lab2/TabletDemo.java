@@ -22,17 +22,13 @@ public class TabletDemo {
         Arrays.stream(tabletBrands).forEach(System.out::println);
 
 
-
-
         Tablet tablet5 = new Tablet("Yota", 13, "Blue");
         String tablet5_password = tablet5.getPassword();
         System.out.println(tablet5_password);
 
 
 
-
     }
-
 
 
     }

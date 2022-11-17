@@ -39,10 +39,6 @@ public class IronDemo {
                         .filter(x -> x.price()<3000).count());
 
 
-////        4.	Создайте коллекцию наушников не черного цвета.
-//        List<Iron> notBlack = irons.stream()
-//                .filter(x -> !x.colour().equals("чёрный")).toList();
-//        System.out.println("\nНе чёрные наушники\n" + notBlack);
 
 //        5.	Рассчитайте среднюю оценку покупателей, используя числовой стрим.
         System.out.println("\n5. Средняя оценка покупателей: \n" + irons.stream()
