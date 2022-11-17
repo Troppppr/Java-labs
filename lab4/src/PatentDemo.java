@@ -3,6 +3,7 @@
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 public class PatentDemo {
@@ -11,56 +12,92 @@ public class PatentDemo {
         Random rand = new Random();
 
         // inventors for patents
-        Inventor FirstInventor = new Inventor("Р›РµРІРёС‚ РњРёС…Р°РёР» Р—Р°С…Р°СЂРѕРІРёС‡");
-        Inventor SecondInventor = new Inventor("РљРѕР»РѕСЃРѕРІ РђР»РµРєСЃРµР№ РђР»РµРєСЃРµРµРІРёС‡");
-        Inventor ThirdInventor = new Inventor("Р‘РѕРЅРґР°СЂСЊ РљСЂРёСЃС‚РёРЅР° Р•РІРіРµРЅСЊРµРІРЅР°");
-        Inventor RecInventor_1 = new Inventor("РљСѓСЂРґСЋРјРѕРІ Р’Р»Р°РґРёРјРёСЂ РРІР°РЅРѕРІРёС‡");
-        Inventor RecInventor_2 = new Inventor("РЁРµРІС‡РµРЅРєРѕ РЎРІСЏС‚РѕСЃР»Р°РІ Р’Р»Р°РґРёРјРёСЂРѕРІРёС‡");
-        Inventor RecInventor_3 = new Inventor("РљР°СЂС‚Р°РІС†РµРІ Р®СЂРёР№ РРІР°РЅРѕРІРёС‡");
+        Inventor FirstInventor = new Inventor("Левит Михаил Захарович");
+        Inventor SecondInventor = new Inventor("Колосов Алексей Алексеевич");
+        Inventor ThirdInventor = new Inventor("Бондарь Кристина Евгеньевна");
+        Inventor RecInventor_1 = new Inventor("Курдюмов Владимир Иванович");
+        Inventor RecInventor_2 = new Inventor("Шевченко Святослав Владимирович");
+        Inventor RecInventor_3 = new Inventor("Картавцев Юрий Иванович");
 
-        //Р’ РєР»Р°СЃСЃРµ PatentDemo СЃРѕР·РґР°Р№С‚Рµ РјР°СЃСЃРёРІ, СЃРѕРґРµСЂР¶Р°С‰РёР№ 3 РѕР±СЉРµРєС‚Р° РєР»Р°СЃСЃР° Patent
+        //В классе PatentDemo создайте массив, содержащий 3 объекта класса Patent
         Patent[] patents =
                 {
-                        new Patent(208906, "Р¤Р РРљР¦РРћРќРќРћР• РР—Р”Р•Р›РР•", FirstInventor),
-                        new Patent(209983, "РЎРњРЃРўРљРђ-РЎРўРђРњР•РЎРљРђ Р”Р›РЇ РџР§Р•Р›РћР’РћР”РЎРўР’Рђ", SecondInventor),
-                        new Patent(210927, "РњРђР›РћР“РђР‘РђР РРўРќРђРЇ Р“Р РђР”РР РќРЇ", ThirdInventor)
+                        new Patent(208906, "ФРИКЦИОННОЕ ИЗДЕЛИЕ", FirstInventor),
+                        new Patent(209983, "СМЁТКА-СТАМЕСКА ДЛЯ ПЧЕЛОВОДСТВА", SecondInventor),
+                        new Patent(210927, "МАЛОГАБАРИТНАЯ ГРАДИРНЯ", ThirdInventor)
                 };
 
-        System.out.println("\nРЎРѕСЂС‚РёСЂРѕРІРєР°: ");
+        System.out.println("\nСортировка: ");
 
-        System.out.println("\nРЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ С‚РµРјРµ:\n");
+        System.out.println("\nСортировка по теме:\n");
         Arrays.sort(patents);
         System.out.println(Arrays.toString(patents));
         System.out.println();
 
-        System.out.println("\nРЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РЅРѕРјРµСЂСѓ РїР°С‚РµРЅС‚Р°:\n");
-        Arrays.sort(patents, new Patent.NumberComparator());
+        System.out.println("\nСортировка по номеру патента:\n");
+        Arrays.sort(patents, new NumberComparator());
         System.out.println(Arrays.toString(patents));
 
-        System.out.println("\nРЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ Р°РІС‚РѕСЂСѓ РїР°С‚РµРЅС‚Р°:\n");
-        Arrays.sort(patents, new Patent.InventorComparator());
+        System.out.println("\nСортировка по автору патента:\n");
+        Arrays.sort(patents, new InventorComparator());
         System.out.println(Arrays.toString(patents));
 
         PatentRecord[] patentRecords =
                 {
-                        new PatentRecord(2772118, "РџРћР§Р’РћРћР‘Р РђР‘РђРўР«Р’РђР®Р©РР™ РљРђРўРћРљ", RecInventor_1),
-                        new PatentRecord(207650, "Р Р•РњР•РќРќРђРЇ РџР•Р Р•Р”РђР§Рђ", RecInventor_2),
-                        new PatentRecord(205755, "РљРћР РџРЈРЎ Р РђРњРћР§РќРћР“Р“Рћ РЈР›Р¬РЇ", RecInventor_3)
+                        new PatentRecord(208906, "ФРИКЦИОННОЕ ИЗДЕЛИЕ", FirstInventor),
+                        new PatentRecord(209983, "СМЁТКА-СТАМЕСКА ДЛЯ ПЧЕЛОВОДСТВА", SecondInventor),
+                        new PatentRecord(210927, "МАЛОГАБАРИТНАЯ ГРАДИРНЯ", ThirdInventor)
                 };
 
-        System.out.println("\nРљР»Р°СЃСЃ Record objects ");
+        System.out.println("\nКласс Record objects ");
 
-        System.out.println("\nРЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ С‚РµРјРµ:\n");
+        System.out.println("\nСортировка по теме:\n");
         Arrays.sort(patentRecords);
         System.out.println(Arrays.toString(patentRecords));
         System.out.println();
 
-        System.out.println("\nРЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РЅРѕРјРµСЂСѓ РїР°С‚РµРЅС‚Р°:\n");
-        Arrays.sort(patentRecords, new PatentRecord.NumberComparator());
+        System.out.println("\nСортировка по номеру патента:\n");
+        Arrays.sort(patentRecords, new NumberRecordComparator());
         System.out.println(Arrays.toString(patentRecords));
 
-        System.out.println("\nРЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ Р°РІС‚РѕСЂСѓ РїР°С‚РµРЅС‚Р°:\n");
-        Arrays.sort(patentRecords, new PatentRecord.InventorComparator());
+        System.out.println("\nСортировка по автору патента:\n");
+        Arrays.sort(patentRecords, new InventorRecordComparator());
         System.out.println(Arrays.toString(patentRecords));
+
+
+    }
+}
+
+class NumberComparator implements Comparator<Patent> {
+
+    @Override
+    public int compare(Patent o1, Patent o2) {
+        return o2.getNumber() - o1.getNumber(); // вычитание между двумя числами, если полученное значение больше 0,
+                                                // то первое число больше второго и так далее
+    }
+}
+
+class InventorComparator implements Comparator<Patent>{
+
+    @Override
+    public int compare(Patent o1, Patent o2) {
+        return o1.getInventor().getName().compareTo(o2.getInventor().getName()); //получаем объект изобретателя,
+        // потом получаем имя и вызываем метод compareTo(стандартный метод класса String)
+    }
+}
+
+class NumberRecordComparator implements Comparator<PatentRecord> {
+
+    @Override
+    public int compare(PatentRecord o1, PatentRecord o2) {
+        return o2.number() - o1.number();
+    }
+}
+
+class InventorRecordComparator implements Comparator<PatentRecord>{
+
+    @Override
+    public int compare(PatentRecord o1, PatentRecord o2) {
+        return o1.inventor().getName().compareTo(o2.inventor().getName());
     }
 }

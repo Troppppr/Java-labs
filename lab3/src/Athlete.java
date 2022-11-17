@@ -12,10 +12,10 @@ public class Athlete {
 
     @Override
     public String toString() {
-        return "РђС‚Р»РµС‚ {" +
-                "РРјСЏ: '" + name  +
-                ", РЎС‚Р°С‚СѓСЃ: " + ready +
-                ", Р РµР·СѓР»СЊС‚Р°С‚ = " + result +
+        return "Атлет {" +
+                "Имя: '" + name  +
+                ", Статус: " + ready +
+                ", Результат = " + result +
                 '}';
     }
 

@@ -1,4 +1,6 @@
 
 public interface Competition {
-    Athlete[] Start(Athlete[] athletes);
+    default Athlete[] start(Athlete[] athletes) {
+        return new Athlete[0];
+    }
 }

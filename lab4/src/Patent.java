@@ -1,14 +1,16 @@
 
 
-// 1. РќР°РїРёС€РёС‚Рµ РєР»Р°СЃСЃ Inventor, РёРјРµСЋС‰РёР№ РЅРµСЃС‚Р°С‚РёС‡РµСЃРєРѕРµ РїРѕР»Рµ name.
-//      РќР°РїРёС€РёС‚Рµ РєР»Р°СЃСЃ Patent, РёРјРµСЋС‰РёР№ РЅРµСЃС‚Р°С‚РёС‡РµСЃРєРёРµ РїРѕР»СЏ
-//      - number (РЅРѕРјРµСЂ РїР°С‚РµРЅС‚Р°),
-//      - topic (С‚РµРјР° РёР·РѕР±СЂРµС‚РµРЅРёСЏ),
-//      - inventor (С‚РёРїР° Inventor). РћР±Р° РєР»Р°СЃСЃР° РІ РІРёРґРµ POJO.
+// 1. Напишите класс Inventor, имеющий нестатическое поле name.
+//      Напишите класс Patent, имеющий нестатические поля
+//      - number (номер патента),
+//      - topic (тема изобретения),
+//      - inventor (типа Inventor). Оба класса в виде POJO.
 
 import java.util.Comparator;
 import java.util.Objects;
-
+/**
+ * Интерфейс Comparable задает одно основное правило сравнение для объектов. Для его работы нужно переопределить метод compareTo (он внизу)
+ * */
 public class Patent implements Comparable<Patent> {
     private int number;
     private String topic;
@@ -19,13 +21,15 @@ public class Patent implements Comparable<Patent> {
         this.topic = topic;
         this.inventor = inventor;
     }
-
+/**
+ * сравнение
+ * */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Patent patent = (Patent) o;
-        return number == patent.number && topic.equals(patent.topic) && inventor.equals(patent.inventor);
+        if (this == o) return true; // В строке проверяет не является ли сравниваемый объект с этим.  Саша = Саша
+        if (o == null || getClass() != o.getClass()) return false; // объект = нулю или объектом того же класса или нет, то есть Саша человек = Саша человек
+        Patent patent = (Patent) o; // преобразование типа Object к типу Patent, чтобы дальше можно было сравнивать по полям
+        return number == patent.number && topic.equals(patent.topic) && inventor.equals(patent.inventor); //Сравнения по полям
     }
 
     @Override
@@ -35,9 +39,9 @@ public class Patent implements Comparable<Patent> {
 
     @Override
     public String toString() {
-        return "РџР°С‚РµРЅС‚ в„– " + number +
-                ", РўРµРјР°: " + topic  +
-                "; РђРІС‚РѕСЂ: " + inventor;
+        return "Патент № " + number +
+                ", Тема: " + topic  +
+                "; Автор: " + inventor;
     }
 
     public int getNumber() {
@@ -67,21 +71,7 @@ public class Patent implements Comparable<Patent> {
     @Override
     public int compareTo(Patent o) {
         return this.getTopic().compareTo(o.getTopic());
-    }
+    }  //получаем объект изобретателя, получаем имя и вызываем метод compareTo, это стандартный метод класса String
 
-    static class NumberComparator implements Comparator<Patent>{
 
-        @Override
-        public int compare(Patent o1, Patent o2) {
-            return o1.getNumber() - o2.getNumber();
-        }
-    }
-
-    static class InventorComparator implements Comparator<Patent>{
-
-        @Override
-        public int compare(Patent o1, Patent o2) {
-            return o1.getInventor().getName().compareTo(o2.getInventor().getName());
-        }
-    }
 }

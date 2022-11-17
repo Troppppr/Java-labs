@@ -29,7 +29,8 @@ public class Shooting implements Competition{
     }
 
     @Override
-    public Athlete[] Start(Athlete[] athletes) {
+    public Athlete[] start(Athlete[] athletes) {
+        System.out.println("Начало соревнований по стрельбе");
         for (Athlete athlete:athletes) {
             if (athlete.getReady()) {
                 int res = random.nextInt(60);

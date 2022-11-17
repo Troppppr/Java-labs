@@ -14,7 +14,8 @@ public class Skiing implements Competition{
     }
 
     @Override
-    public Athlete[] Start(Athlete[] athletes) {
+    public Athlete[] start(Athlete[] athletes) {
+        System.out.println("Начало соревнований по лыжным гонкам");
         for (Athlete athlete:athletes
         ) {
             if (athlete.getReady()){

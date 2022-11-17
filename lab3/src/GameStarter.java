@@ -5,7 +5,7 @@ public class GameStarter {
                 new Athlete("Alex Scott"),
                 new Athlete("Ben Cook"),
                 new Athlete("Christopher Nolan"),
-                new Athlete("Damian Lewis")
+                new Athlete("Damian Lewis"),
         };
 
         Skiing skiing = new Skiing(25);
@@ -14,6 +14,6 @@ public class GameStarter {
 
         Game game = new Game(new Competition[]{skiing, shooting, running}, athletes);
 
-        game.Start();
+        game.start();
     }
 }
